@@ -28,5 +28,9 @@ namespace Core_Proje.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult PartialHead()
+        {
+            return PartialView();
+        }
     }
 }

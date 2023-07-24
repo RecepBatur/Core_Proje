@@ -11,15 +11,27 @@
     <br />
     @Html.Label("Proje Başlığı")
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
     <br />
     @Html.Label("Görsel 1 ")
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
     <br />
     @Html.Label("Görsel 2")
     @Html.TextBoxFor(x => x.BıgImageUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BıgImageUrl, null, new { @class = "text-danger" })
     <br />
     @Html.Label("Proje Url")
     @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ProjectUrl, null, new { @class = "text-danger" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
+    <br />
+    @Html.Label("Tamamlanma Oranı")
+    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
     <br />
     <button class="btn btn-outline-info">Kaydet</button>
 

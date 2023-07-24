@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,16 +25,31 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult AddPortfolio()
         {
-            ViewBag.v1 = "Proje Ekleme";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Proje Ekleme";
             return View();
         }
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio p)
         {
-            portfolioManager.TAdd(p);
-            return RedirectToAction("Index");
+            ViewBag.v1 = "Proje Ekleme";
+            ViewBag.v2 = "Projeler";
+            ViewBag.v3 = "Proje Ekleme";
+
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult results = validations.Validate(p);
+            if (results.IsValid)
+            {
+                portfolioManager.TAdd(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+
         }
     }
 }

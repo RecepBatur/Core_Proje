@@ -1,13 +1,13 @@
 ﻿@model EntityLayer.Concrete.Feature
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 @using (Html.BeginForm("Index", "Feature", FormMethod.Post))
 {
     <div class="card-header border-0">
-        <h3 class="mb-0">Öne Çıkan Post Düzenleme Sayfası</h3>
+        @*<h3 class="mb-0">Öne Çıkan Post Düzenleme Sayfası</h3>*@
         @Html.HiddenFor(x => x.FeatureID)
         <br />
         @Html.Label("Başlık")

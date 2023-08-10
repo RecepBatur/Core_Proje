@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Core_Proje.Areas.Writer.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,12 @@ namespace Core_Proje.Areas.Writer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string p)
+        public IActionResult Index(UserRegisterViewModel p)
         {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View();
         }
     }

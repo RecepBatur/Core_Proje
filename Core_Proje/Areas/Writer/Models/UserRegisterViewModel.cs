@@ -9,7 +9,13 @@ namespace Core_Proje.Areas.Writer.Models
     public class UserRegisterViewModel
     {
         [Required(ErrorMessage = "Zorunlu alan")]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "Zorunlu alan")]
+        public string Surname { get; set; }
+        [Required(ErrorMessage = "Zorunlu alan")]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "Zorunlu alan")]
+        public string ImageUrl { get; set; }
         [Required(ErrorMessage = "Lütfen şifrenizi girin")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Lütfen şifrenizi girin")]

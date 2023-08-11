@@ -28,18 +28,19 @@ namespace Core_Proje.Areas.Writer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
-            if (ModelState.IsValid)
-            {
-                WriterUser writer = new WriterUser()
-                {
-                    Name = p.Name,
-                    Surname = p.Surname,
-                    UserName = p.UserName,
-                    Email = p.Email,
-                    ImageUrl = int.Parse(p.ImageUrl),
-                };
 
+            WriterUser writer = new WriterUser()
+            {
+                Name = p.Name,
+                Surname = p.Surname,
+                UserName = p.UserName,
+                Email = p.Email,
+                ImageUrl = p.ImageUrl
+            };
+            if (p.Password == p.ConfirmPassword)
+            {
                 var result = await _userManager.CreateAsync(writer, p.Password);
+
 
                 if (result.Succeeded)
                 {
@@ -53,7 +54,8 @@ namespace Core_Proje.Areas.Writer.Controllers
                     }
                 }
             }
-            return View();
+
+            return View(p);
         }
     }
 }

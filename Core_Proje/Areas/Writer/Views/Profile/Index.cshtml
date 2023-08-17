@@ -1,4 +1,4 @@
-﻿
+﻿@model Core_Proje.Areas.Writer.Models.UserEditViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
@@ -11,11 +11,11 @@
             <form class="forms-sample">
                 <div class="form-group">
                     <label for="exampleInputName1">Adınız</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Ad">
+                    <input type="text" name="@Model.Name" value="@Model.Name" class="form-control" id="exampleInputName1" placeholder="Ad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Soyadınız</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Soyad">
+                    <input type="text" name="@Model.Surname" value="@Model.Surname" class="form-control" id="exampleInputName1" placeholder="Soyad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
@@ -27,13 +27,13 @@
                 </div>
                 <div class="form-group">
                     <label>Resim Seç</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
+                    <input type="file" name="@Model.PictureUrl" class="file-upload-default">
+                    @*<div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Resim Yükle">
                         <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
                         </span>
-                    </div>
+                    </div>*@
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
                 <button class="btn btn-light">İptal</button>

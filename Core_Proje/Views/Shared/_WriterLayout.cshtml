@@ -6,20 +6,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@Html.Partial("HeadPartial")
+@await Html.PartialAsync("/Areas/Writer/Views/Default/HeadPartial.cshtml")
 
 <body>
     <div class="container-scroller">
-        @Html.Partial("_NavbarPartial")
+        @Html.Partial("/Areas/Writer/Views/Default/_NavbarPartial.cshtml")
         <div class="container-fluid page-body-wrapper">
-            @Html.Partial("_SideBarPartial")
+            @Html.Partial("/Areas/Writer/Views/Default/_SideBarPartial.cshtml")
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         @RenderBody()
                     </div>
                 </div>
-                @Html.Partial("FooterPartial")
+                @Html.Partial("/Areas/Writer/Views/Default/FooterPartial.cshtml")
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,14 @@ namespace Core_Proje.Areas.Writer.Controllers
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name); //Sisteme giriş yapan kullanıcıyı buluyoruz.
             ViewBag.v = values.Name + " " + values.Surname;
+
+
+            //statistics
+            Context c = new Context();
+            ViewBag.v1 = 0;
+            ViewBag.v2 = c.Announcements.Count();
+            ViewBag.v3 = 0;
+            ViewBag.v4 = c.Skills.Count();
             return View();
         }
     }

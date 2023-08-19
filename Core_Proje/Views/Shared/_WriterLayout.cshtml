@@ -10,15 +10,15 @@
 
 <body>
     <div class="container-scroller">
-        @Html.Partial("/Areas/Writer/Views/Default/_NavbarPartial.cshtml")
+        @await Html.PartialAsync("/Areas/Writer/Views/Default/_NavbarPartial.cshtml")
         <div class="container-fluid page-body-wrapper">
-            @Html.Partial("/Areas/Writer/Views/Default/_SideBarPartial.cshtml")
+            @await Html.PartialAsync("/Areas/Writer/Views/Default/_SideBarPartial.cshtml")
             <div class="main-panel">
                 <div class="content-wrapper">
                         @RenderBody()
 
                 </div>
-                @Html.Partial("/Areas/Writer/Views/Default/FooterPartial.cshtml")
+                @await Html.PartialAsync("/Areas/Writer/Views/Default/FooterPartial.cshtml")
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public WriterMessage TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _writerMessageDal.GetByID(id);
         }
 
         public List<WriterMessage> TGetList()

@@ -22,11 +22,18 @@ namespace Core_Proje.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string p)
+        public async Task<IActionResult> ReceiverMessage(string p)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name); //Sisteme giriş yapan kullanıcıyı buluyoruz.
             p = values.Email;
-            var messageList = writerMessageManager.TGetListByFilter(p);
+            var messageList = writerMessageManager.GetListReceiverMessage(p);
+            return View(messageList);
+        }
+        public async Task<IActionResult> SenderMessage(string p)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name); //Sisteme giriş yapan kullanıcıyı buluyoruz.
+            p = values.Email;
+            var messageList = writerMessageManager.GetListSenderMessage(p);
             return View(messageList);
         }
     }

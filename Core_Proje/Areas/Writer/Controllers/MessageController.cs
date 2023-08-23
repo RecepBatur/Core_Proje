@@ -46,5 +46,22 @@ namespace Core_Proje.Areas.Writer.Controllers
             WriterMessage writerMessage = writerMessageManager.TGetByID(id);
             return View(writerMessage);
         }
+        [HttpGet]
+        public IActionResult SendMessage()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendMessage(WriterMessage p)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            string mail = values.Email;
+            string name = values.Name + " " + values.Surname;
+            p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            p.Sender = mail;
+            p.SenderName = name;
+            writerMessageManager.TAdd(p);
+            return RedirectToAction("SenderMessage", "Message");
+        }
     }
 }

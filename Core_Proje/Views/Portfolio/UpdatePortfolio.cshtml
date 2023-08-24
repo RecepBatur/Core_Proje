@@ -1,45 +1,50 @@
 ﻿@model EntityLayer.Concrete.Portfolio
 @{
     ViewData["Title"] = "UpdatePortfolio";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 @using (Html.BeginForm("UpdatePortfolio", "Portfolio", FormMethod.Post))
-{
-<div class="card-header border-0">
-    <h3 class="mb-0">Proje Güncelleme Sayfası</h3>
-    @Html.HiddenFor(x => x.PortfolioID)
-    <br />
-    @Html.Label("Proje Başlığı")
-    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Görsel 1 ")
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Görsel 2")
-    @Html.TextBoxFor(x => x.BıgImageUrl, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.BıgImageUrl, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Proje Url")
-    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.ProjectUrl, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Fiyat")
-    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Tamamlanma Oranı")
-    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
-    <br />
-    @Html.Label("Platform")
-    @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
-    <br />
-    <button class="btn btn-outline-info">Kaydet</button>
-
-</div>
-}
+ {
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Proje Düzenleme </p>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x => x.PortfolioID)
+                    <br />
+                    @Html.Label("Proje Başlığı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Görsel 1 ")
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Görsel 2")
+                    @Html.TextBoxFor(x => x.BıgImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.BıgImageUrl, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Proje Url")
+                    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ProjectUrl, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Fiyat")
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Tamamlanma Oranı")
+                    @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Platform")
+                    @Html.TextBoxFor(x => x.Platform, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
+                    <br />
+                    <button class="btn btn-outline-info">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+ }
 

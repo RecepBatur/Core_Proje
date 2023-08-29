@@ -10,6 +10,7 @@
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
         <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnid" class="btn btn-outline-success">Id İle Getir</button>
     </div>
 </div>
 
@@ -20,13 +21,15 @@
 <br />
 
 <div class="col-md-12">
-    <input type="text" class="form-control" id="inpName" placeholder="Adınız" />
+    <h5>Ekleme Paneli</h5>
+    <input type="text" class="form-control" id="inpName" placeholder="Başlık" />
     <br />
-    <input type="text" class="form-control" id="inpSurname" placeholder="Soyadınız" />
-    <br />
-    <input type="text" class="form-control" id="inpUsername" placeholder="Kullanıcı Adınız" />
-    <br />
-    <input type="text" class="form-control" id="inpMail" placeholder="Mail Adresi" />
+    <input type="text" class="form-control" id="inpdate" placeholder="Tarih" />
+</div>
+<br />
+<div class="col-md-12">
+    <h5>Id'ye Göre Getirme Paneli</h5>
+    <input type="text" class="form-control" id="inpid" placeholder="ID Giriniz" />
 </div>
 
 @section Scripts
@@ -54,6 +57,42 @@
                      $("#listexperience").html(htmlst);
                  }
             });
+        });
+
+
+        $("#btnadd").click(function ()
+        {
+            let values = {
+                Name: $("#inpName").val(),
+                Date: $("inpdate").val()
+            };
+
+            $.ajax({
+                type: "Post",
+                url: "/ExperienceAjax/AddExperience/",
+                data: values,
+                success: function (funk) {
+                    let result = jQuery.parseJSON(funk);
+                    alert(result.Name + "Başarılı bir şekilde eklendi");
+                }
+            });
+        });
+
+        $("#btnid").click(x => {
+            let id = $("#inpid").val();
+
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/ExperienceAjax/GetById/",
+                data: { ExperienceID: id },
+                success: function (fnc) {
+                    console.log(fnc);
+                }
+            });
+
+
         });
 
     </script>

@@ -18,7 +18,12 @@
 
 </div>
 
+
+<div class="p-2" id="listbyidexperience">
+
+</div>
 <br />
+
 
 <div class="col-md-12">
     <h5>Ekleme Paneli</h5>
@@ -88,7 +93,12 @@
                 url: "/ExperienceAjax/GetById/",
                 data: { ExperienceID: id },
                 success: function (fnc) {
-                    console.log(fnc);
+                    let result = jQuery.parseJSON(fnc);
+                    console.log(result);
+
+                    let htmlstr = `<table class=table table-hover> <tr> <th>Deneyim ID</th> <td>${result.ExperienceID}</td> </tr>
+                     <tr> <th>Başlık</th> <td>${result.Name}</td> </tr> </table>`;
+                    $("#listbyidexperience").html(htmlstr); //tabloyu çağırdık sonuçları görmek için.
                 }
             });
 

@@ -42,5 +42,21 @@ namespace Core_Proje_Api.Controllers
             c.SaveChanges();
             return Created("", p);
         }
+        [HttpDelete]
+        public IActionResult CategoryDelete(int id)
+        {
+            using var c = new Context();
+            var value = c.Categories.Find(id);
+            if (value == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                c.Remove(value);
+                c.SaveChanges();
+                return NoContent();
+            }
+        }
     }
 }

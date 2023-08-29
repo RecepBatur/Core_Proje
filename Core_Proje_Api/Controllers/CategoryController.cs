@@ -1,4 +1,5 @@
 ﻿using Core_Proje_Api.DAL.ApiContext;
+using Core_Proje_Api.DAL.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,7 +20,7 @@ namespace Core_Proje_Api.Controllers
             return Ok(c.Categories.ToList());
         }
         [HttpGet("{id}")]
-        public IActionResult CategoryGetById(int id)
+        public IActionResult CategoryGet(int id)
         {
             using var c = new Context();
             var value = c.Categories.Find(id);
@@ -32,6 +33,14 @@ namespace Core_Proje_Api.Controllers
                 return Ok(value);
             }
 
+        }
+        [HttpPost]
+        public IActionResult CategoryAdd(Category p)
+        {
+            using var c = new Context();
+            c.Add(p);
+            c.SaveChanges();
+            return Created("", p);
         }
     }
 }

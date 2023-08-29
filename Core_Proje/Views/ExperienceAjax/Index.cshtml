@@ -13,9 +13,8 @@
     </div>
 </div>
 
-<h4 class="text-center">Deneyim Listesi</h4>
-<div class="p-2" id="listuser">
-    buraya veriler gelecek.
+<div class="p-2" id="listexperience">
+
 </div>
 
 <br />
@@ -44,8 +43,15 @@
                  success: function (func) {
 
                     let values = jQuery.parseJSON(func);
-                    console.log(values);
+                     console.log(values);
 
+                     let htmlst = "<table class=table table-bordered> <tr> <th> ID </th> <th> Başlık </th> <th> Tarih </th> </tr>";
+                     $.each(values, (index, value) => {
+                         htmlst += `<tr> <td>${value.ExperienceID}</td> <td>${value.Name}</td> <td>${value.Date}</td> </tr>`
+                     });
+
+                     htmlst += "</table>";
+                     $("#listexperience").html(htmlst);
                  }
             });
         });

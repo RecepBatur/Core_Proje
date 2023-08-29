@@ -10,7 +10,9 @@
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
         <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
-        <button type="button" id="btnid" class="btn btn-outline-success">Id İle Getir</button>
+        <button type="button" id="btnid" class="btn btn-outline-warning">Id İle Getir</button>
+        <button type="button" id="btndelete" class="btn btn-outline-danger">Sil</button>
+        <button type="button" id="btnupdate" class="btn btn-outline-success">Güncelle</button>
     </div>
 </div>
 
@@ -36,10 +38,16 @@
     <h5>Id'ye Göre Getirme Paneli</h5>
     <input type="text" class="form-control" id="inpid" placeholder="ID Giriniz" />
 </div>
+<br />
+<div class="col-md-12">
+    <h5>Silme Paneli</h5>
+    <input type="text" class="form-control" id="inpdlid" placeholder="ID Giriniz" />
+</div>
 
 @section Scripts
 {
     <script>
+
 
         $("#btngetlistall").click(function () {
             $.ajax({
@@ -103,6 +111,19 @@
             });
 
 
+        });
+
+        $("#btndelete").click(x => {
+            let id = $("#inpdlid").val();
+            $.ajax({
+                url: "/ExperienceAjax/DeleteExperience/" + id,
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (fnct) {
+                    loadData();
+                }
+            });
         });
 
     </script>

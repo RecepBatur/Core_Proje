@@ -1,5 +1,6 @@
 ﻿@using EntityLayer.Concrete
-@model List<WriterUser>
+@model List<Experience>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
@@ -8,11 +9,11 @@
 <div class="col-md-6">
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
-        <button type="button" id="btnadduser" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
     </div>
 </div>
 
-<h4 class="text-center">Yazar Listesi</h4>
+<h4 class="text-center">Deneyim Listesi</h4>
 <div class="p-2" id="listuser">
     buraya veriler gelecek.
 </div>
@@ -33,17 +34,19 @@
 {
     <script>
 
-        $("#btngetlistall").click(function() {
+        $("#btngetlistall").click(function () {
             $.ajax({
                 contentType: "application/json",
                 dataType: "json",
                 type: "Get",
-                url: "/WriterUser/ListWriterUser/",
+                url: "/ExperienceAjax/ListExperience/",
 
-                success: function (func) {
-                    let users = jQuery.parseJSON(func);
-                    console.log(users);
-                }
+                 success: function (func) {
+
+                    let values = jQuery.parseJSON(func);
+                    console.log(values);
+
+                 }
             });
         });
 

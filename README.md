@@ -23,3 +23,4 @@ Bu proje, ASP.Net Core 5.0 ile ORM olarak Entity Framework Core ve N Tier Archit
 Veritabanı Olarak;
 * MSSQL
 * Code First
+![Ekran görüntüsü 2023-09-22 002102](https://github.com/RecepBatur/Core_Proje/assets/100492746/e2aa4465-8446-43b3-b642-ab84a2bdc866)
